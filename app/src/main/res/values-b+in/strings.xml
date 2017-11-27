@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traveller</string>
+    <string name="home">Beranda</string>
+    <string name="my_trip">Perjalananku</string>
+    <string name="message">Pesan</string>
+    <string name="me">Saya</string>
+    <string name="title_recommendation">Rekomendasi Tempat</string>
+    <string name="my_traveller">Traveller Saya</string>
+
+    <string name="culture">Budaya</string>
+    <string name="outdoor">Wisata Alam</string>
+    <string name="souvenir">Oleh - oleh</string>
+    <string name="culinary">Wisata Kuliner</string>
+
+    <string name="see_all">Lihat semua</string>
+
+    <string name="about_place">Tentang Tempat Ini</string>
+    <string name="location">Lokasi</string>
+    <string name="review">Ulasan</string>
+    <string name="find_traveller">Mencari Wisatawan</string>
+    <string name="overview">Ikhtisar</string>
+
+    <string name="message_person">Kirim Pesan</string>
+</resources>

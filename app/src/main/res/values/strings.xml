@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Traveller</string>
+    <string name="home">Home</string>
+    <string name="my_trip">My Trip</string>
+    <string name="message">Message</string>
+    <string name="me">Me</string>
+    <string name="title_recommendation">Recommendation Places</string>
+    <string name="my_traveller">My Traveller</string>
+    
+    <string name="culture">Culture</string>
+    <string name="outdoor">Outdoor</string>
+    <string name="souvenir">Souvenir</string>
+    <string name="culinary">Culinary</string>
+
+    <string name="see_all">See all</string>
+
+    <string name="about_place">About This Place</string>
+    <string name="location">Location</string>
+    <string name="review">Review</string>
+    <string name="find_traveller">Find Traveler</string>
+    <string name="overview">Overview</string>
+
+    <string name="message_person">Send Message</string>
+
+</resources>

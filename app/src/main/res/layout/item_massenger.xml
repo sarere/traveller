@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/normal_pad_margin"
+    android:background="@drawable/ripple_with_white_bg_color">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgUser"
+            android:layout_marginStart="@dimen/normal_pad_margin"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/ic_launcher"
+            tools:src="@color/colorPrimary"
+            tools:ignore="ContentDescription"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#914b04" />
+
+        <TextView
+            android:layout_marginTop="@dimen/small_gap"
+            android:id="@+id/txtTimeChat"
+            android:layout_marginStart="@dimen/normal_pad_margin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/normal_pad_margin"
+            android:gravity="end"
+            android:textSize="@dimen/small_font_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            tools:text="08:00"
+            />
+
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_marginStart="@dimen/normal_pad_margin"
+            android:layout_toEndOf="@id/imgUser"
+            android:layout_toStartOf="@id/txtTimeChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            tools:text="Samuel Reynaldi"
+            android:lines="1"
+            />
+
+        <TextView
+            android:id="@+id/txtNotification"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_below="@id/txtTimeChat"
+            android:layout_marginEnd="@dimen/normal_pad_margin"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/notification"
+            android:textSize="@dimen/small_font_size"
+            android:layout_marginTop="@dimen/normal_pad_margin"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            tools:text="1"/>
+
+        <TextView
+            android:layout_toEndOf="@id/imgUser"
+            android:id="@+id/txtChatPreview"
+            android:layout_marginTop="@dimen/tiny_pad_margin"
+            android:layout_below="@id/txtUserName"
+            android:layout_marginStart="@dimen/normal_pad_margin"
+            android:layout_marginEnd="@dimen/normal_pad_margin"
+            android:layout_toStartOf="@id/txtNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_desc"
+            android:textColor="@android:color/darker_gray"
+            android:lineSpacingExtra="4sp"
+            android:lines="2"
+            tools:text="Ini adalah contoh dari sebuah pesan yang cukup panjang"
+            />
+
+        <View
+            android:layout_marginTop="@dimen/normal_pad_margin"
+            android:layout_marginEnd="@dimen/normal_pad_margin"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/imgUser"
+            android:layout_toEndOf="@id/imgUser"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:layout_height="@dimen/small_gap" />
+
+
+
+</RelativeLayout>

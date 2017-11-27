@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_action_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/action_my_trip"
+        android:icon="@drawable/ic_action_my_trip"
+        android:title="@string/my_trip" />
+    <item
+        android:id="@+id/action_message"
+        android:icon="@drawable/ic_action_message"
+        android:title="@string/message" />
+    <item
+        android:id="@+id/action_me"
+        android:icon="@drawable/ic_action_me"
+        android:title="@string/me" />
+
+</menu>
