@@ -18,7 +18,7 @@
             tools:src="@color/colorPrimary"
             tools:ignore="ContentDescription"
             app:civ_border_width="2dp"
-            app:civ_border_color="#914b04" />
+            app:civ_border_color="@color/colorPrimary" />
 
         <TextView
             android:layout_marginTop="@dimen/small_gap"

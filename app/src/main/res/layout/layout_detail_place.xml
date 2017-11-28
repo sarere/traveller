@@ -160,10 +160,10 @@
                 android:layout_marginBottom="@dimen/small_pad_margin"/>
 
             <TextView
-                android:id="@+id/btnSeeAll"
+                android:id="@+id/btnSeeAllFindTraveler"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/ripple_with_white_bg_color"
+                android:background="@drawable/ripple_without_color_bg"
                 android:clickable="true"
                 android:gravity="right"
                 android:text="@string/see_all"
@@ -191,6 +191,20 @@
                 android:layout_below="@id/titleReview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/btnSeeAllReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/rvReview"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/normal_pad_margin"
+                android:text="@string/see_all"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:background="@drawable/ripple_without_color_bg"/>
 
         </RelativeLayout>
 
