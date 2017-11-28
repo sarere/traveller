@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
     android:layout_marginTop="?attr/actionBarSize">
 
     <LinearLayout
@@ -204,7 +205,8 @@
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
                 android:textSize="15sp"
-                android:background="@drawable/ripple_without_color_bg"/>
+                android:background="@drawable/ripple_without_color_bg"
+                android:clickable="true"/>
 
         </RelativeLayout>
 

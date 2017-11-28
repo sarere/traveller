@@ -17,8 +17,9 @@ import java.util.List;
  */
 
 public class ActivityDetailPlace extends AppCompatActivity {
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerViewReview;
     AdapterFindTraveler adapter;
+    AdapterReview adapterReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class ActivityDetailPlace extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = findViewById(R.id.rvFindTraveller);
+        recyclerViewReview = findViewById(R.id.rvReview);
         List<User> data = new ArrayList<User>();
         adapter = new AdapterFindTraveler(data, this);
 
@@ -42,6 +44,20 @@ public class ActivityDetailPlace extends AppCompatActivity {
         data.add(new User("Stephan Kent", "23.00","Gmn tugasnya?"));
         data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
         adapter.notifyDataSetChanged();
+
+        recyclerView = findViewById(R.id.rvReview);
+        List<Review> dataReview = new ArrayList<Review>();
+        adapterReview = new AdapterReview(this, dataReview);
+
+        lm = new LinearLayoutManager(this);
+        recyclerViewReview.setLayoutManager(lm);
+        recyclerViewReview.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewReview.setAdapter(adapterReview);
+
+        dataReview.add(new Review("Good Place", "Good place if you go with your couple", 4));
+        dataReview.add(new Review("Nice!!!", "I can do anything with my couple",5));
+        dataReview.add(new Review("Disgusting for family", "What the hell this place",1));
+        adapterReview.notifyDataSetChanged();
     }
 
     @Override
