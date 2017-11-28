@@ -41,6 +41,7 @@
             android:layout_toEndOf="@id/imgUserReview"
             android:layout_marginStart="@dimen/normal_pad_margin"
             style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:progressBackgroundTint="@color/colorPrimary"
             android:numStars="5"/>
 
         <TextView
