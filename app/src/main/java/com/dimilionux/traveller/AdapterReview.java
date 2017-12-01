@@ -15,12 +15,19 @@ import java.util.List;
  */
 
 public class AdapterReview extends RecyclerView.Adapter <AdapterReview.AdapterReviewHolder>{
-    Context mContext;
-    List<Review> reviewList;
+    public Context mContext;
+    public List<Review> reviewList;
+    public boolean staticList;
 
     public AdapterReview(Context mContext, List<Review> reviewList){
         this.mContext = mContext;
         this.reviewList = reviewList;
+    }
+
+    public AdapterReview(Context mContext, List<Review> reviewList, boolean staticList){
+        this.mContext = mContext;
+        this.reviewList = reviewList;
+        this.staticList = staticList;
     }
 
     public class AdapterReviewHolder extends RecyclerView.ViewHolder {
@@ -52,6 +59,10 @@ public class AdapterReview extends RecyclerView.Adapter <AdapterReview.AdapterRe
 
     @Override
     public int getItemCount() {
+        if(staticList){
+            return 5;
+        }
+
         return reviewList.size();
     }
 }

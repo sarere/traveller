@@ -65,7 +65,7 @@ public class FragmentHome extends Fragment {
 
         recyclerView = view.findViewById(R.id.rvRecommendPlace);
         List<Places> data = new ArrayList<Places>();
-        adapter = new AdapterPlace(data, getContext(), R.layout.item_place_horizontal_recycler);
+        adapter = new AdapterPlace(data, getContext(), R.layout.item_place_horizontal_recycler, true);
 
         RecyclerView.LayoutManager lm = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(lm);
@@ -86,6 +86,8 @@ public class FragmentHome extends Fragment {
         data.add(new Places("Kali Urang", 4));
         data.add(new Places("Gunung Kidul", 5));
         data.add(new Places("Kulon Progo", 5));
+        data.add(new Places("Borobudur", 5));
+        data.add(new Places("Kali Biru", 5));
 
         adapter.notifyDataSetChanged();
     }

@@ -16,12 +16,22 @@ import java.util.List;
  */
 
 public class AdapterFindTraveler extends RecyclerView.Adapter <AdapterFindTraveler.AdapterFindTravelerHolder>{
-    public Context mContext;
-    public List<User> userList;
+    private Context mContext;
+    private List<User> userList;
+    private int layoutRes;
+    private boolean staticList;
 
-    public AdapterFindTraveler(List<User> userList, Context mContext){
+    public AdapterFindTraveler(List<User> userList, Context mContext, int layoutRes){
         this.mContext = mContext;
         this.userList = userList;
+        this.layoutRes = layoutRes;
+    }
+
+    public AdapterFindTraveler(List<User> userList, Context mContext, int layoutRes, boolean staticList){
+        this.mContext = mContext;
+        this.userList = userList;
+        this.layoutRes = layoutRes;
+        this.staticList = staticList;
     }
 
     public class AdapterFindTravelerHolder extends RecyclerView.ViewHolder{
@@ -45,7 +55,7 @@ public class AdapterFindTraveler extends RecyclerView.Adapter <AdapterFindTravel
 
     @Override
     public AdapterFindTravelerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_find_traveler, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(layoutRes, parent, false);
         return new AdapterFindTravelerHolder(itemView);
     }
 
@@ -58,6 +68,10 @@ public class AdapterFindTraveler extends RecyclerView.Adapter <AdapterFindTravel
 
     @Override
     public int getItemCount() {
+        if(staticList){
+            return 5;
+        }
+
         return userList.size();
     }
 }

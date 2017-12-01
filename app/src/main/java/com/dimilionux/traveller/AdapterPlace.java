@@ -20,11 +20,19 @@ public class AdapterPlace extends RecyclerView.Adapter <AdapterPlace.RecommendPl
     private List<Places> listPlaces;
     private Context mContext;
     private int layoutRes;
+    private boolean staticList;
 
     public AdapterPlace(List<Places> listPlaces, Context mContext, int layoutRes){
         this.listPlaces = listPlaces;
         this.mContext = mContext;
         this.layoutRes = layoutRes;
+    }
+
+    public AdapterPlace(List<Places> listPlaces, Context mContext, int layoutRes, boolean staticList){
+        this.listPlaces = listPlaces;
+        this.mContext = mContext;
+        this.layoutRes = layoutRes;
+        this.staticList = staticList;
     }
 
     public class RecommendPlacesAdapterHolder extends RecyclerView.ViewHolder{
@@ -64,6 +72,10 @@ public class AdapterPlace extends RecyclerView.Adapter <AdapterPlace.RecommendPl
 
     @Override
     public int getItemCount() {
+        if(staticList){
+            return 5;
+        }
+
         return listPlaces.size();
     }
 }

@@ -33,7 +33,7 @@ public class ActivityDetailPlace extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvFindTraveller);
         recyclerViewReview = findViewById(R.id.rvReview);
         List<User> data = new ArrayList<User>();
-        adapter = new AdapterFindTraveler(data, this);
+        adapter = new AdapterFindTraveler(data, this, R.layout.item_find_traveler, true);
 
         RecyclerView.LayoutManager lm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(lm);
@@ -43,11 +43,15 @@ public class ActivityDetailPlace extends AppCompatActivity {
         data.add(new User("Rere", "08.00", "Hoi garap tugas progmobnya cepetan.. nanti gk selesai gmn sih hemmm"));
         data.add(new User("Stephan Kent", "23.00","Gmn tugasnya?"));
         data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
         adapter.notifyDataSetChanged();
 
         recyclerView = findViewById(R.id.rvReview);
         List<Review> dataReview = new ArrayList<Review>();
-        adapterReview = new AdapterReview(this, dataReview);
+        adapterReview = new AdapterReview(this, dataReview, true);
 
         lm = new LinearLayoutManager(this);
         recyclerViewReview.setLayoutManager(lm);
