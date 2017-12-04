@@ -10,14 +10,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
 
         <ImageView
             android:id="@+id/imgPlaceDetail"
             android:layout_width="match_parent"
             tools:ignore="ContentDescription"
             android:layout_height="150dp"
-            app:srcCompat="@drawable/yoja_min"
+            app:srcCompat="@drawable/no_image"
             android:scaleType="centerCrop"/>
 
         <RelativeLayout
@@ -36,7 +37,7 @@
                 android:textStyle="bold" />
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/ratingBarDetailPlace"
                 android:layout_marginBottom="@dimen/tiny_pad_margin"
                 android:layout_below="@id/titlePlace"
                 style="?android:attr/ratingBarStyleSmall"
@@ -49,9 +50,10 @@
 
             <TableRow
                 android:id="@+id/categoryGroup"
-                android:layout_below="@id/ratingBar"
+                android:layout_below="@id/ratingBarDetailPlace"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="visible">
 
 
                 <ImageView
@@ -126,7 +128,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginTop="@dimen/normal_pad_margin"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/imgLocation"
@@ -136,7 +139,8 @@
                 tools:ignore="ContentDescription"
                 android:layout_height="150dp"
                 app:srcCompat="@drawable/yoja_min"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/titleFindTraveler"
@@ -164,6 +168,8 @@
                 android:id="@+id/btnSeeAllFindTraveler"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:paddingTop="@dimen/small_pad_margin"
+                android:paddingLeft="@dimen/normal_pad_margin"
                 android:background="@drawable/ripple_without_color_bg"
                 android:clickable="true"
                 android:gravity="right"
@@ -197,6 +203,8 @@
                 android:id="@+id/btnSeeAllReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/small_pad_margin"
+                android:paddingLeft="@dimen/normal_pad_margin"
                 android:layout_above="@id/rvReview"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/normal_pad_margin"
@@ -209,7 +217,63 @@
                 android:clickable="true"/>
 
         </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/reviewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/txtReviewTitleSubmit"
+                android:layout_marginTop="@dimen/space"
+                android:layout_marginStart="@dimen/normal_pad_margin"
+                android:layout_marginEnd="@dimen/normal_pad_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:inputType="textPersonName"
+                android:hint="@string/title_review" />
 
+
+            <EditText
+                android:id="@+id/txtReviewSubmit"
+                android:layout_marginStart="@dimen/normal_pad_margin"
+                android:layout_marginEnd="@dimen/normal_pad_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:ems="10"
+                android:inputType="textCapSentences|textMultiLine"
+                android:hint="@string/review" />
+
+            <RatingBar
+                android:id="@+id/ratingBarSubmit"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:numStars="5"
+                android:progressTint="@color/gold"
+                android:layout_marginTop="@dimen/small_pad_margin"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginStart="@dimen/normal_pad_margin"
+                android:layout_marginEnd="@dimen/normal_pad_margin"
+                android:layout_marginTop="@dimen/normal_pad_margin"
+                android:id="@+id/btnWriteReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="@string/submit" />
+
+            <Button
+                android:id="@+id/btnSaveToTrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="Button"
+                android:paddingBottom="@dimen/space"/>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

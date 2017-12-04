@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/normal_pad_margin"
+    android:paddingEnd="@dimen/normal_pad_margin"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/normal_pad_margin"
+    android:layout_marginTop="?android:attr/actionBarSize">
+
+    <EditText
+        android:id="@+id/txtNameRegis"
+        android:layout_marginTop="@dimen/normal_pad_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/name"/>
+
+    <EditText
+        android:id="@+id/txtEmailRegis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtNameRegis"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/txtFeedback"
+        android:layout_above="@id/txtPasswordRegis"
+        android:layout_marginEnd="@dimen/normal_pad_margin"
+        android:layout_below="@id/txtNameRegis"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/failed"
+        android:visibility="gone"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/txtPasswordRegis"
+        android:layout_below="@id/txtEmailRegis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+
+    <Button
+        android:id="@+id/btnRegis"
+        android:layout_below="@id/txtPasswordRegis"
+        android:layout_marginTop="@dimen/normal_pad_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_selector"
+        android:enabled="false"
+        android:text="@string/register" />
+</RelativeLayout>

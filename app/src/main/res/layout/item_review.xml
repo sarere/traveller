@@ -34,7 +34,7 @@
             tools:text="Good for couple"/>
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/ratingBarReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleItemReview"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/normal_pad_margin"
-            android:layout_below="@id/ratingBar"
+            android:layout_below="@id/ratingBarReview"
             android:layout_toEndOf="@id/imgUserReview"
             android:textSize="12sp"
             tools:text="the waterfall really relaxing" />
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/ratingBar"
+            android:layout_above="@id/ratingBarReview"
             android:layout_marginTop="@dimen/small_pad_margin"
             android:layout_alignParentEnd="true"
             android:textSize="10sp"

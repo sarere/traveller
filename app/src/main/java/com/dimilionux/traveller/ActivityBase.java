@@ -1,5 +1,6 @@
 package com.dimilionux.traveller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,7 +12,7 @@ import android.view.MenuItem;
 public class ActivityBase extends AppCompatActivity {
     private BottomNavigationView btmNav;
     private Fragment selectedFragment;
-    static public String parentFragment;
+    public static int parentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +50,14 @@ public class ActivityBase extends AppCompatActivity {
         });
 
 
-        if (parentFragment == getString(R.string.home)){
+        if (parentFragment == R.string.home){
             selectedFragment = FragmentHome.newInstance();
-        } else if (parentFragment == getString(R.string.my_trip)){
+        } else if (parentFragment == R.string.my_trip){
             selectedFragment = FragmentMyTrip.newInstance();
             btmNav.setSelectedItemId(R.id.action_my_trip);
+        } else if (parentFragment == R.string.me){
+            selectedFragment = FragmentMe.newInstance();
+            btmNav.setSelectedItemId(R.id.action_me);
         } else {
             selectedFragment = FragmentHome.newInstance();
         }

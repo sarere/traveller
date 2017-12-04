@@ -6,9 +6,9 @@ package com.dimilionux.traveller;
 
 public class Review {
     public String titleReview, contentReview;
-    public int ratingReview;
+    public float ratingReview;
 
-    public Review (String titleReview, String contentReview, int ratingReview){
+    public Review (String titleReview, String contentReview, float ratingReview){
         this.titleReview = titleReview;
         this.contentReview = contentReview;
         this.ratingReview = ratingReview;

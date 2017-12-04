@@ -39,7 +39,7 @@ public class AdapterReview extends RecyclerView.Adapter <AdapterReview.AdapterRe
 
             titleReview = itemView.findViewById(R.id.titleItemReview);
             contentReview = itemView.findViewById(R.id.contentItemReview);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+            ratingBar = itemView.findViewById(R.id.ratingBarReview);
         }
     }
 
@@ -59,7 +59,7 @@ public class AdapterReview extends RecyclerView.Adapter <AdapterReview.AdapterRe
 
     @Override
     public int getItemCount() {
-        if(staticList){
+        if(staticList && reviewList.size() >= 5){
             return 5;
         }
 

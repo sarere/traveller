@@ -22,4 +22,26 @@
 
     <string name="message_person">Send Message</string>
 
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="write_review">Write Review</string>
+    <string name="edit_find_traveler_list">Edit Find Traveler List</string>
+    <string name="name">Name</string>
+
+    <string name="regis_success">Registration Success</string>
+    <string name="email_used">Email Not Available</string>
+
+    <string name="valid_email">Valid Email</string>
+    <string name="invalid_email">Invalid Email</string>
+
+    <string name="failed_login">Wrong Email or Password</string>
+    <string name="success_login">Login Success</string>
+    <string name="submit">Submit</string>
+    <string name="title_review">Title Review</string>
+    <string name="success">Success</string>
+    <string name="failed">Failed</string>
 </resources>

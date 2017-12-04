@@ -1,5 +1,6 @@
 package com.dimilionux.traveller;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ public class FragmentMessage extends Fragment {
     private RecyclerView recyclerView;
     private AdapterMessage adapter;
     private FragmentActivity view;
+    private SharedPreferences sp;
 
     public static FragmentMessage newInstance() {
         FragmentMessage fragment = new FragmentMessage();
@@ -42,6 +44,14 @@ public class FragmentMessage extends Fragment {
 
         view = getActivity();
         recyclerView = view.findViewById(R.id.rvMessages);
+        sp = view.getSharedPreferences("database",view.MODE_PRIVATE);
+
+        if(!sp.getBoolean("isLogin",false)) {
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+
         List<User> data = new ArrayList<User>();
         adapter = new AdapterMessage(data, getContext(), R.layout.item_massenger);
 

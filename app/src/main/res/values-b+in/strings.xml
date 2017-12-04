@@ -22,4 +22,27 @@
     <string name="overview">Ikhtisar</string>
 
     <string name="message_person">Kirim Pesan</string>
+
+    <string name="password">Kata Sandi</string>
+    <string name="email">Alamat Surel</string>
+    <string name="login">Masuk</string>
+    <string name="register">Daftar</string>
+    <string name="setting">Pengaturan</string>
+    <string name="logout">Keluar Akun</string>
+    <string name="write_review">Menulis Ulasan</string>
+    <string name="edit_find_traveler_list">Ubah List Mencari Penjelajah</string>
+    <string name="name">Nama</string>
+
+    <string name="regis_success">Pendaftaran Berhasil</string>
+    <string name="email_used">Alamat surel sudah Digunakan</string>
+
+    <string name="valid_email">Alamat surel sudah benar</string>
+    <string name="invalid_email">Alamat surel masih salah</string>
+
+    <string name="failed_login">Alamat Surel Atau Kata Sandi Salah</string>
+    <string name="success_login">Berhasil Masuk</string>
+    <string name="submit">Kumpul</string>
+    <string name="title_review">Judul Ulasan</string>
+    <string name="success">Berhasil</string>
+    <string name="failed">Gagal</string>
 </resources>

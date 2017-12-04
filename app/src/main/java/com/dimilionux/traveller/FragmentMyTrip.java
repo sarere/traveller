@@ -1,5 +1,6 @@
 package com.dimilionux.traveller;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ public class FragmentMyTrip extends Fragment {
     private RecyclerView recyclerView;
     private AdapterMyTrip adapter;
     private FragmentActivity view;
+    private SharedPreferences sp;
 
     public static FragmentMyTrip newInstance() {
         FragmentMyTrip fragment = new FragmentMyTrip();
@@ -41,7 +43,14 @@ public class FragmentMyTrip extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.my_trip);
 
         view = getActivity();
+        sp = view.getSharedPreferences("database",view.MODE_PRIVATE);
         recyclerView = view.findViewById(R.id.rvMyTrip);
+
+        if(!sp.getBoolean("isLogin",false)) {
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+        }
         List<MyTrip> data = new ArrayList<MyTrip>();
         adapter = new AdapterMyTrip(data, getContext());
 

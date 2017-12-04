@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/normal_pad_margin"
+    android:paddingEnd="@dimen/normal_pad_margin"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/normal_pad_margin"
+    android:layout_marginTop="?android:attr/actionBarSize">
+
+    <EditText
+        android:layout_marginTop="@dimen/normal_pad_margin"
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/txtFeedbackLogin"
+        android:layout_marginTop="@dimen/normal_pad_margin"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="@dimen/normal_pad_margin"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/failed"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_below="@id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_below="@id/txtPassword"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="@dimen/normal_pad_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:enabled="false"
+        android:background="@drawable/btn_selector"
+        android:text="@string/login" />
+</RelativeLayout>

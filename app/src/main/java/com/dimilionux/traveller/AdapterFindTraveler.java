@@ -68,7 +68,7 @@ public class AdapterFindTraveler extends RecyclerView.Adapter <AdapterFindTravel
 
     @Override
     public int getItemCount() {
-        if(staticList){
+        if(staticList && userList.size() >= 5){
             return 5;
         }
 

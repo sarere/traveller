@@ -7,4 +7,6 @@
     <color name="black">#000000</color>
     <color name="lightGray">#F1F1F1</color>
     <color name="gold">#FEE644</color>
+    <color name="success">#16c100</color>
+    <color name="failed">#c90808</color>
 </resources>

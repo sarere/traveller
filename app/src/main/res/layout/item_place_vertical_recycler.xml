@@ -24,7 +24,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/yoja_min" />
+            app:srcCompat="@drawable/no_image" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             <RatingBar
                 android:layout_marginBottom="@dimen/tiny_pad_margin"
                 android:layout_below="@id/namePlace"
-                android:id="@+id/ratingBar"
+                android:id="@+id/ratingBarItem"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,9 +56,10 @@
             <TableRow
                 android:layout_marginBottom="@dimen/tiny_pad_margin"
                 android:id="@+id/categoryGroup"
-                android:layout_below="@id/ratingBar"
+                android:layout_below="@id/ratingBarItem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
 
                 <ImageView
