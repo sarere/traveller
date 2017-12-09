@@ -76,10 +76,11 @@ public class FragmentMe extends Fragment {
 
 
                 Intent intent = new Intent(getContext(),activity );
-                startActivity(intent);
-                if(isFinish){
-                    getActivity().finish();
+                if(isFinish) {
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 }
+                startActivity(intent);
+
             }
         });
     }

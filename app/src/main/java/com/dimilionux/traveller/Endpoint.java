@@ -7,6 +7,6 @@ import okhttp3.MediaType;
  */
 
 public class Endpoint {
-    public static String urlEndpoint = "http://192.168.0.102:8000/";
+    public static String urlEndpoint = "http://laravellinebot.000webhostapp.com/";
     public static MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 }

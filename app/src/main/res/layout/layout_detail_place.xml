@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="none"
+    android:paddingBottom="@dimen/normal_pad_margin"
     android:layout_marginTop="?android:attr/actionBarSize">
 
     <LinearLayout
@@ -128,24 +129,19 @@
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginTop="@dimen/normal_pad_margin"
-                android:textStyle="bold"
-                android:visibility="gone"/>
+                android:textStyle="bold"/>
 
-            <ImageView
-                android:id="@+id/imgLocation"
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapViewLocation"
+                android:layout_marginTop="@dimen/small_pad_margin"
                 android:layout_below="@id/titleLocation"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/small_pad_margin"
-                tools:ignore="ContentDescription"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/yoja_min"
-                android:scaleType="centerCrop"
-                android:visibility="gone"/>
+                android:layout_height="250dp" />
 
             <TextView
                 android:id="@+id/titleFindTraveler"
                 android:layout_marginTop="@dimen/normal_pad_margin"
-                android:layout_below="@id/imgLocation"
+                android:layout_below="@id/mapViewLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/find_traveller"

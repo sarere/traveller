@@ -1,5 +1,7 @@
 package com.dimilionux.traveller;
 
+import java.util.List;
+
 /**
  * Created by sarere on 11/23/17.
  */
@@ -7,7 +9,7 @@ package com.dimilionux.traveller;
 public class Places {
     public int id;
     public String namePlace, aboutPlace;
-    public String picture = "http://192.168.0.102:8000/picture/place/";
+    public String picture = Endpoint.urlEndpoint + "picture/place/";
     public float rating;
 
 
@@ -21,5 +23,12 @@ public class Places {
         } else {
             this.picture = null;
         }
+    }
+
+    public boolean isDataExist(int id, List<Places> dataList){
+        if(dataList.contains(id)){
+            return true;
+        }
+        return false;
     }
 }

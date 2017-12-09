@@ -1,10 +1,19 @@
 package com.dimilionux.traveller;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,7 +54,7 @@ import java.util.List;
  * Created by sarere on 11/27/17.
  */
 
-public class ActivityDetailPlace extends AppCompatActivity {
+public class ActivityDetailPlace extends AppCompatActivity implements OnMapReadyCallback {
     private RecyclerView recyclerView, recyclerViewReview;
     private AdapterFindTraveler adapter;
     private Button btnReview;
@@ -57,6 +66,8 @@ public class ActivityDetailPlace extends AppCompatActivity {
     private LinearLayout linearLayout;
     private SharedPreferences sp;
     private List<Review> dataReview = new ArrayList<Review>();
+    MapView mapView;
+    GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,17 +87,18 @@ public class ActivityDetailPlace extends AppCompatActivity {
         txtReviewTitleSubmit = findViewById(R.id.txtReviewTitleSubmit);
         ratingBarSubmit = findViewById(R.id.ratingBarSubmit);
         linearLayout = findViewById(R.id.reviewLayout);
+        mapView = findViewById(R.id.mapViewLocation);
 
-        id = intent.getIntExtra("id",1);
+        id = intent.getIntExtra("id", 1);
         aboutPlace.setText(intent.getStringExtra("aboutPlace"));
-        rating.setRating(intent.getFloatExtra("ratingPlace",0));
-        if(intent.getStringExtra("picturePlace") != null) {
+        rating.setRating(intent.getFloatExtra("ratingPlace", 0));
+        if (intent.getStringExtra("picturePlace") != null) {
             Picasso.with(this).load(intent.getStringExtra("picturePlace")).into(picPlace);
         }
 
-        sp = getSharedPreferences("database",MODE_PRIVATE);
+        sp = getSharedPreferences("database", MODE_PRIVATE);
 
-        if(!sp.getBoolean("isLogin",false)) {
+        if (!sp.getBoolean("isLogin", false)) {
             linearLayout.setVisibility(View.GONE);
         } else {
             linearLayout.setVisibility(View.VISIBLE);
@@ -140,7 +152,7 @@ public class ActivityDetailPlace extends AppCompatActivity {
         btnReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitReview(txtReviewTitleSubmit.getText().toString(), txtReviewSubmit.getText().toString(),ratingBarSubmit.getRating());
+                submitReview(txtReviewTitleSubmit.getText().toString(), txtReviewSubmit.getText().toString(), ratingBarSubmit.getRating());
             }
         });
 
@@ -154,12 +166,12 @@ public class ActivityDetailPlace extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         data.add(new User("Rere", "08.00", "Hoi garap tugas progmobnya cepetan.. nanti gk selesai gmn sih hemmm"));
-        data.add(new User("Stephan Kent", "23.00","Gmn tugasnya?"));
-        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
-        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
-        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
-        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
-        data.add(new User("Ditoa", "24.00","aku garap apa nih??"));
+        data.add(new User("Stephan Kent", "23.00", "Gmn tugasnya?"));
+        data.add(new User("Ditoa", "24.00", "aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00", "aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00", "aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00", "aku garap apa nih??"));
+        data.add(new User("Ditoa", "24.00", "aku garap apa nih??"));
         adapter.notifyDataSetChanged();
 
         recyclerView = findViewById(R.id.rvReview);
@@ -170,25 +182,27 @@ public class ActivityDetailPlace extends AppCompatActivity {
         recyclerViewReview.setAdapter(adapterReview);
         new LoadData().execute();
 
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
     }
 
-    private void validation(){
+    private void validation() {
         String s1 = txtReviewTitleSubmit.getText().toString().trim();
         String s2 = txtReviewSubmit.getText().toString().trim();
-        if(ratingBarSubmit.getRating() == 0 || s1.equals("") || s2.equals("")) {
+        if (ratingBarSubmit.getRating() == 0 || s1.equals("") || s2.equals("")) {
             btnReview.setEnabled(false);
-        } else{
+        } else {
             btnReview.setEnabled(true);
         }
     }
 
-    private void submitReview(String title, String review, float rating){
+    private void submitReview(String title, String review, float rating) {
         String exactUrl = Endpoint.urlEndpoint + "submit-review";
-        String email = sp.getString("userEmail",null);
-        String dataPost = "{\"title\":\""+title+"\",\"review\":\"" + review + "\",\"rating\":\"" + rating + "\",\"email\":\"" + email + "\",\"place_id\":\"" + id + "\"}";
-        Log.d("DataPost",""+dataPost);
+        String email = sp.getString("userEmail", null);
+        String dataPost = "{\"title\":\"" + title + "\",\"review\":\"" + review + "\",\"rating\":\"" + rating + "\",\"email\":\"" + email + "\",\"place_id\":\"" + id + "\"}";
+        Log.d("DataPost", "" + dataPost);
         OkHttpClient client = new OkHttpClient();
-        RequestBody reqBody = RequestBody.create(Endpoint.JSON,dataPost);
+        RequestBody reqBody = RequestBody.create(Endpoint.JSON, dataPost);
         Request req = new Request.Builder()
                 .url(exactUrl)
                 .post(reqBody)
@@ -202,24 +216,24 @@ public class ActivityDetailPlace extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String json = response.body().string();
-                Log.d("Response",""+json);
+                Log.d("Response", "" + json);
                 try {
                     JSONObject reader = new JSONObject(json);
                     String status = reader.getString("message");
-                    Log.d("Response",""+reader.getString("message"));
-                    if(status.equals("failed")){
+                    Log.d("Response", "" + reader.getString("message"));
+                    if (status.equals("failed")) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Log.d("Response","masukk");
-                                Toast.makeText(getBaseContext(),R.string.failed,Toast.LENGTH_LONG).show();
+                                Log.d("Response", "masukk");
+                                Toast.makeText(getBaseContext(), R.string.failed, Toast.LENGTH_LONG).show();
                             }
                         });
                     } else {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(getBaseContext(),R.string.success,Toast.LENGTH_LONG).show();
+                                Toast.makeText(getBaseContext(), R.string.success, Toast.LENGTH_LONG).show();
                                 new LoadData().execute();
                             }
                         });
@@ -231,6 +245,29 @@ public class ActivityDetailPlace extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+//        map.getUiSettings().setZoomControlsEnabled(true);
+//        map.getUiSettings().setMyLocationButtonEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        LatLng position = new LatLng(0,0);
+
+
+        map.addMarker(new MarkerOptions()
+                .position(position)
+                .title("Marker"));
     }
 
     private class LoadData extends AsyncTask<Void, Void, Void> {
@@ -275,15 +312,17 @@ public class ActivityDetailPlace extends AppCompatActivity {
                 String json = response.body().string();
                 try {
                     JSONArray reader = new JSONArray(json);
+                    dataReview.clear();
                     for (int i=0 ; i<reader.length() ; i++){
                         JSONObject data = new JSONObject(reader.getString(i));
                         Log.d("Response",""+data.getString("title"));
-                        dataReview.add(new Review(data.getString("title"), data.getString("review"), (float) data.getDouble("rating_review")));
+                        Review databaseReview = new Review(data.getString("title"), data.getString("review"), (float) data.getDouble("rating_review"), data.getInt("id"));
+
+                        dataReview.add(databaseReview);
 
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-
                                 adapterReview.notifyDataSetChanged();
                             }
                         });

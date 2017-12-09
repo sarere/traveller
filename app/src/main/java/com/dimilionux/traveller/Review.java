@@ -5,12 +5,14 @@ package com.dimilionux.traveller;
  */
 
 public class Review {
+    public int id;
     public String titleReview, contentReview;
     public float ratingReview;
 
-    public Review (String titleReview, String contentReview, float ratingReview){
+    public Review (String titleReview, String contentReview, float ratingReview, int id){
         this.titleReview = titleReview;
         this.contentReview = contentReview;
         this.ratingReview = ratingReview;
+        this.id = id;
     }
 }
